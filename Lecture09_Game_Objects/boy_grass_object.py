@@ -8,11 +8,13 @@ class Grass:
         self.image = load_image('grass.png')  # shift + enter : 바로 개행
         # self : 생성괸 객체를 가리키는 더미 변수
 
-    def draw(self):
+    def draw(self):  # 항상 첫번째 파라미터로 self를 넣어야 한다.
         self.image.draw(400, 30)
 
     def upodate(self):
         pass
+
+
 
 def handle_events():
     global running
@@ -38,6 +40,7 @@ def update_world():
 
 def render_world():
     clear_canvas()
+    grass.draw()
     update_canvas()
 
 
