@@ -13,7 +13,6 @@ class Grass:
         self.image.draw(400, 30)
 
     def update(self):
-
         pass
 
 
@@ -34,7 +33,7 @@ class Boy:
 class SmallBall:
     def __init__(self):
         self.x, self.y = random.randint(0, 800), 599
-        self.speed = (random.randint(5,10))
+        self.speed = (random.randint(5, 10))
         self.image = load_image('ball21x21.png')
 
     def update(self):
@@ -50,7 +49,7 @@ class SmallBall:
 class BigBall:
     def __init__(self):
         self.x, self.y = random.randint(0, 800), 599
-        self.speed = (random.randint(5,10))
+        self.speed = (random.randint(5, 10))
         self.image = load_image('ball41x41.png')
 
     def update(self):
@@ -92,6 +91,7 @@ def reset_world():
     world += small_balls
     big_balls = [BigBall() for i in range(10)]
     world += big_balls
+
 
 def update_world():
     for o in world:
