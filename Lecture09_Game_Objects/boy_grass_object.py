@@ -44,6 +44,17 @@ class SmallBall:
         self.image.draw(0, 0, 21, 21, self.x, self.y)
 
 
+class BigBall:
+    def __init__(self):
+        self.x, self.y = random.randint(0, 800), 599
+        self.speed = (random.randint(1,10))
+        self.image = load_image('ball41x41.png')
+
+    def update(self):
+        self.y -= self.speed
+
+    def draw(self):
+        self.image.draw(0, 0, 41, 41, self.x, self.y)
 
 
 def handle_events():
