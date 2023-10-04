@@ -14,6 +14,7 @@ class Grass:
     def upodate(self):
         pass
 
+
 class Boy:
     def __init__(self):
         self.x, self.y = 0, 90
@@ -26,6 +27,7 @@ class Boy:
 
     def draw(self):
         self.image.clip_draw(self.frame * 100, 0, 100, 100, self.x, self.y)
+
 
 def handle_events():
     global running
