@@ -12,13 +12,13 @@ class Grass:
     def draw(self):  # 항상 첫번째 파라미터로 self를 넣어야 한다.
         self.image.draw(400, 30)
 
-    def upodate(self):
+    def update(self):
         pass
 
 
 class Boy:
     def __init__(self):
-        self.x, self.y = random.randint(0, 800), 90
+        self.x, self.y = random.randint(0, 750), 90
         self.frame = random.randint(0, 7)
         self.image = load_image('run_animation.png')
 
@@ -44,23 +44,26 @@ def reset_world():
     global running
     global grass
     global team
+    global world
 
     running = True
+    world = []
+
     team = [Boy() for i in range(10)]
+    world += team
     grass = Grass()
+    world.append(grass)
 
 
 def update_world():
-    grass.upodate()
-    for boy in team:
-        boy.update()
+    for o in world:
+        o.update()
 
 
 def render_world():
     clear_canvas()
-    grass.draw()
-    for boy in team:
-        boy.draw()
+    for o in world:
+        o.draw()
     update_canvas()
 
 
