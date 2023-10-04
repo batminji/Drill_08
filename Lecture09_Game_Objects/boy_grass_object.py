@@ -31,6 +31,21 @@ class Boy:
         self.image.clip_draw(self.frame * 100, 0, 100, 100, self.x, self.y)
 
 
+class SmallBall:
+    def __init__(self):
+        self.x, self.y = random.randint(0, 800), 599
+        self.speed = (random.randint(1,10))
+        self.image = load_image('ball21x21.png')
+
+    def update(self):
+        self.y -= self.speed
+
+    def draw(self):
+        self.image.draw(0, 0, 21, 21, self.x, self.y)
+
+
+
+
 def handle_events():
     global running
     events = get_events()
