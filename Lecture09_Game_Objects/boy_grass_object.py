@@ -3,6 +3,17 @@ from pico2d import *
 
 # Game object class here
 
+class Grass:
+    def __init__(self):  # 생성자 함수
+        self.image = load_image('grass.png')  # shift + enter : 바로 개행
+        # self : 생성괸 객체를 가리키는 더미 변수
+
+    def draw(self):
+        self.image.draw(400, 30)
+
+    def upodate(self):
+        pass
+
 def handle_events():
     global running
     events = get_events()
@@ -15,8 +26,10 @@ def handle_events():
 
 def reset_world():
     global running
+    global grass
 
     running = True
+    grass = Grass()
 
 
 def update_world():
