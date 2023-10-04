@@ -34,27 +34,33 @@ class Boy:
 class SmallBall:
     def __init__(self):
         self.x, self.y = random.randint(0, 800), 599
-        self.speed = (random.randint(1,10))
+        self.speed = (random.randint(5,10))
         self.image = load_image('ball21x21.png')
 
     def update(self):
-        self.y -= self.speed
+        if self.y > 65:
+            self.y -= self.speed
+        else:
+            self.y = 65
 
     def draw(self):
-        self.image.draw(0, 0, 21, 21, self.x, self.y)
+        self.image.draw(self.x, self.y)
 
 
 class BigBall:
     def __init__(self):
         self.x, self.y = random.randint(0, 800), 599
-        self.speed = (random.randint(1,10))
+        self.speed = (random.randint(5,10))
         self.image = load_image('ball41x41.png')
 
     def update(self):
-        self.y -= self.speed
+        if self.y > 75:
+            self.y -= self.speed
+        else:
+            self.y = 75
 
     def draw(self):
-        self.image.draw(0, 0, 41, 41, self.x, self.y)
+        self.image.draw(self.x, self.y)
 
 
 def handle_events():
@@ -71,16 +77,21 @@ def reset_world():
     global running
     global grass
     global team
+    global small_balls
+    global big_balls
     global world
 
     running = True
     world = []
 
-    team = [Boy() for i in range(10)]
-    world += team
     grass = Grass()
     world.append(grass)
-
+    team = [Boy() for i in range(11)]
+    world += team
+    small_balls = [SmallBall() for i in range(10)]
+    world += small_balls
+    big_balls = [BigBall() for i in range(10)]
+    world += big_balls
 
 def update_world():
     for o in world:
